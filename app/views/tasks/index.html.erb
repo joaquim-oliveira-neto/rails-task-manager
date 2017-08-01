@@ -1,0 +1,16 @@
+<h1>Here is your to do list</h1>
+<%= link_to "New", tasks_new_path %>
+<% @tasks.each do |task|  %>
+  <p> <%= task.description %> </p>
+  <p> <%= task.due_date %> </p>
+  <% if task.completed %>
+    <p>[ X ]</p>
+  <% else %>
+    <p>[  ]</p>
+  <% end %>
+  <%= link_to "Show", task_path(task.id)  %>
+  <%= link_to "Edit", task_edit_path(task.id)  %>
+  <%= link_to "Delete", task_path(task.id),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<% end %>

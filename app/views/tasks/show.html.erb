@@ -1,0 +1,9 @@
+<h1> <%= @task.description %> </h1>
+<h2> <%= @task.due_date %> </h2>
+<% if @task.completed %>
+  <p>[ X ]</p>
+<% else %>
+  <p>[  ]</p>
+<% end %>
+
+<%= link_to "back", tasks_path %>
